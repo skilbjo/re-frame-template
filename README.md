@@ -1,3 +1,13 @@
+# skilbjo notes
+
+- <https://medium.com/@roman01la/how-to-create-clojurescript-app-4e38778c4762>
+- <https://github.com/Day8/re-frame>
+- <http://reagent-project.github.io/>
+- <https://github.com/magomimmo/modern-cljs>
+- <https://github.com/clojure/clojurescript/tree/master/samples>
+
+
+
 # re-frame-template
 
 Leiningen template for [reagent](https://github.com/reagent-project/reagent) web apps which implement the [re-frame](https://github.com/Day8/re-frame) pattern.
@@ -45,7 +55,7 @@ Any combination of profiles can be added at once:
 lein new re-frame <project-name> +garden +re-com +routes +test +less +10x
 ```
 
->  Note: to assist debugging, you'll want to include either `+10x` or `+re-frisk` 
+>  Note: to assist debugging, you'll want to include either `+10x` or `+re-frisk`
 
 
 ## Start Cider from Emacs (if using +cider):
@@ -54,7 +64,7 @@ Put this in your Emacs config file:
 
 ```
 (setq cider-cljs-lein-repl
-	"(do (require 'figwheel-sidecar.repl-api)
+  "(do (require 'figwheel-sidecar.repl-api)
          (figwheel-sidecar.repl-api/start-figwheel!)
          (figwheel-sidecar.repl-api/cljs-repl))")
 ```
@@ -101,35 +111,35 @@ Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 
 So, you now have the application running.
 
-Before you start developing, you should tweak two settings within your 
-browser's `devtools`. These are one-time actions (for each browser and laptop you use). 
-I'll assume Chrome for the purposes of further explanation: 
+Before you start developing, you should tweak two settings within your
+browser's `devtools`. These are one-time actions (for each browser and laptop you use).
+I'll assume Chrome for the purposes of further explanation:
 
 1. Open devtools. Press press `F12` or `Ctrl-Shift-i` ([actually there's a variety of ways](https://developer.chrome.com/devtools))
 1. Open devtool's "Setting" Panel. Press F1. (Careful. Not the Setting panel for Chrome itself!! The Settings panel for devtools)
-1. Under the "Network" heading, tick the option "Disable cache (while DevTools is open)". You don't want figwheel's attempts at reloading to be defeated by caching. 
+1. Under the "Network" heading, tick the option "Disable cache (while DevTools is open)". You don't want figwheel's attempts at reloading to be defeated by caching.
 1. Under the "Console" heading, tick the option "Enable custom formatters". This allows [cljs-devtools](https://github.com/binaryage/cljs-devtools) to perform its magic.
-1. Close Settings. Close Devtools. 
-1. Reopen Devtools 
+1. Close Settings. Close Devtools.
+1. Reopen Devtools
 
 ![settings](docs/images/devtools-settings.png)
 
 ## Open 10x Panel (if using +10x):
 
-To use `re-frame-10x` for debugging your app: 
+To use `re-frame-10x` for debugging your app:
   1. click on the application, minimal through it is, to give it "input<project-name> focus" (you want to be sure that any key presses are going to your new app)
   2. press `Ctrl-H` and you should see the `re-frame-10x` panel appear on the right side of the window
 
-Sometimes achieving Step 1 on a really simple app - one without widgets - can be fiddly, 
+Sometimes achieving Step 1 on a really simple app - one without widgets - can be fiddly,
 because the browser itself hogs "input focus" and grabs all the keystrokes (like `Ctrl-H`) which don't
-then make it through to your app. You may need to be determined and creative with Step 1. 
+then make it through to your app. You may need to be determined and creative with Step 1.
 I have every confidence in you.
 
 ## Hot Reloading Is Now Go
 
-If you now edit files, like perhaps `/src/cljs/<project-name>/views.cljs`, Figwheel will automatically 
-recompile your changes and "hot load" them into your running app, without your app needing 
-to be re-started. The resulting fast, iterative workflow tends to make you very productive, and 
+If you now edit files, like perhaps `/src/cljs/<project-name>/views.cljs`, Figwheel will automatically
+recompile your changes and "hot load" them into your running app, without your app needing
+to be re-started. The resulting fast, iterative workflow tends to make you very productive, and
 is cherished by those lucky enough to experience it.
 
 ### debug?:
@@ -138,8 +148,8 @@ In _project-name.config_, there is a variable called `debug?`, which
 defaults to _true_. However, for the `min` build (look inside of `project.clj`), this variable is
 re-defined to _false_.
 
-When `debug?` is true, we include `(enable-console-print!)`. If you, for example, 
-you wrap your `println`s with a `when` block as show below, then you will get logs 
+When `debug?` is true, we include `(enable-console-print!)`. If you, for example,
+you wrap your `println`s with a `when` block as show below, then you will get logs
 printed to the browser's console for the `dev` build and not the `min` build.
 
 ```clojure
